@@ -55,6 +55,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          blogSidebarCount: 'ALL', // Shows all posts in the sidebar
+          blogSidebarTitle: 'All posts', // Optional: changes sidebar heading
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
