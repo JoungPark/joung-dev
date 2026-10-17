@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Joung Dev',
+  title: 'Fullstack to Agentic',
   tagline: 'Fullstack Software Developer learning AI',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -79,7 +79,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Joung Dev',
+      title: 'Fullstack to Agentic',
       items: [
         {
           href: 'https://github.com/JoungPark',
