@@ -2,3 +2,7 @@ second-memory:
   label: Second Memory
   permalink: /second-memory
   description: Second Memory Project
+
+kafka:
+  label: Kafka
+  permalink: /kafka
