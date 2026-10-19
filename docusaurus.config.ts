@@ -47,7 +47,9 @@ const config: Config = {
     [
       'classic',
       {
-        docs: false, // This completely disables the docs plugin
+        docs: {
+          sidebarPath: './sidebars.ts'
+        },
         blog: {
           routeBasePath: '/', // Serves documentation from the root site
           showReadingTime: true,
