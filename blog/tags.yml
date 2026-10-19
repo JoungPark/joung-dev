@@ -6,3 +6,8 @@ second-memory:
 kafka:
   label: Kafka
   permalink: /kafka
+
+security:
+  label: OTP
+  permalink: /security
+  description: Security and authentication

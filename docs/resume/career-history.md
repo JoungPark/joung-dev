@@ -17,11 +17,11 @@ displayed_sidebar: null
 
 Location: Australia
 
-**Jan 2023 – 13 Nov 2026**
+**09 Jan 2023 – 13 Nov 2026**
 
-### Esports & Tournament Platform
+### Repeat.gg: Esports & Tournament Platform
 
-**Senior Software Developer / Software Developer**
+**Senior Software Developer**
 
 **Technologies:** TypeScript, Node.js, NestJS, React, React Native, Expo, PHP, Symfony, Firebase Authentication, MySQL, MongoDB / Amazon DocumentDB, Apache Kafka / Amazon MSK, AWS ECS Fargate, EC2, Lambda, EventBridge, AppConfig, Secrets Manager, SSM, CloudWatch, S3, SES, CodeDeploy, CDK, Docker, GitHub Copilot, Cursor
 
@@ -65,13 +65,13 @@ Location: Australia
 
 ---
 
-## Wenco International Mining Systems  / SmartCap
+## Wenco International Mining Systems
 
 Location: Australia
 
 **May 2022 – Dec 2022**
 
-### Fatigue Monitoring System
+### SmartCap: Fatigue Monitoring System
 
 **Senior Software Developer**
 
@@ -96,7 +96,7 @@ Location: Australia
 
 **Mar 2020 – May 2022**
 
-### Enterprise Payroll Platform
+### T50: Enterprise Payroll Platform
 
 **Software Developer**
 
@@ -124,7 +124,7 @@ Location: Australia
 
 **Jan 2019 – Mar 2020**
 
-### Mobile Blockchain Ledger Platform
+### AgUnity: Mobile Blockchain Ledger Platform
 
 **Oct 2019 – Mar 2020**
 **Software Developer**
@@ -141,7 +141,7 @@ Location: Australia
 * Used Azure DevOps for source control, sprint planning, task-based development and deployment processes.
 * Participated in peer-to-peer code reviews and collaborative development.
 
-### IoT-Powered Supply Chain Solution
+### Escovox: IoT-Powered Supply Chain Solution
 
 **Jan 2019 – Oct 2019 (10 months)**
 **Software Developer**
@@ -183,7 +183,7 @@ Location: Australia
 * Improved application performance using Redis caching.
 * Implemented real-time data communication using WebSockets.
 
-### Cryptocurrency Exchange Platform
+### Ruby X: Cryptocurrency Exchange Platform
 
 **Jun 2018 – Dec 2018 (7 months)**
 **Software Developer**
