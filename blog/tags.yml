@@ -3,11 +3,7 @@ second-memory:
   permalink: /second-memory
   description: Second Memory Project
 
-kafka:
-  label: Kafka
-  permalink: /kafka
-
-security:
-  label: OTP
-  permalink: /security
-  description: Security and authentication
+event-driven:
+  label: Event Driven
+  permalink: /event-driven
+  description: Event Driven Architecture
