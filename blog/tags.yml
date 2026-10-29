@@ -7,3 +7,13 @@ event-driven:
   label: Event Driven
   permalink: /event-driven
   description: Event Driven Architecture
+
+observability:
+  label: Observability
+  permalink: /observability
+  description: Logging, tracing, metrics, and OpenTelemetry
+
+kafka:
+  label: Kafka
+  permalink: /kafka
+  description: Apache Kafka and event streaming
