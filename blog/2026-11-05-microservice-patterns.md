@@ -53,7 +53,7 @@ Kafka consumers in our stack already retry poison-adjacent cases with operationa
 
 **Rule:** one logical operation should be followable across HTTP, Kafka, Lambdas, and long-running workers.
 
-We are standardizing on **[OpenTelemetry](/2026/10/29/open-telemetry)** and W3C `traceparent` propagation. That **supersedes** ad-hoc `x-correlation-id` headers for new work: any hop that understands OTEL continues the same trace. Until every path is instrumented, we may still see correlation IDs in older services; new code should inject and extract trace context on produce/consume and outbox commit.
+We are standardizing on **[OpenTelemetry](./2026-10-29-open-telemetry.md)** and W3C `traceparent` propagation. That **supersedes** ad-hoc `x-correlation-id` headers for new work: any hop that understands OTEL continues the same trace. Until every path is instrumented, we may still see correlation IDs in older services; new code should inject and extract trace context on produce/consume and outbox commit.
 
 Application logs go to **Elastic Cloud** as structured JSON. Besides trace and span IDs, we include **Kafka message identifiers** (topic, partition, offset, and our internal message id when present) so on-call can jump from a log line to a broker record without guessing.
 
@@ -73,7 +73,7 @@ A shared “UserValidator” npm package feels convenient until two services nee
 
 **Rule:** **authentication** happens at the API gateway or entry point (**Firebase** verifies the token before traffic hits Nest). **Authorization**—roles, ownership, step-up, country eligibility—runs **inside each service** that owns the resource.
 
-That split matches what I documented for Second-Memory in [Why I Chose Third-Party (Firebase) Authentication](/2026/10/10/why-i-chose-third-party-firebase-authentication): Firebase proves identity; our services decide what that identity may do on *this* aggregate. No service should trust another service’s “already authorized” flag without its own check when the resource is theirs.
+That split matches what I documented for Second-Memory in [Why I Chose Third-Party (Firebase) Authentication](./2026-10-10-why-i-chose-third-party-firebase-authentication.md): Firebase proves identity; our services decide what that identity may do on *this* aggregate. No service should trust another service’s “already authorized” flag without its own check when the resource is theirs.
 
 ---
 
@@ -245,7 +245,7 @@ Publish commands to a **well-known Kafka topic** Payment owns. Callers produce `
 
 **Pros:** Same decoupling as explicit API (Payment does not know the caller’s event names); **no** temporal coupling on the produce path; callers choose their own correlation ids.
 
-**Cons:** No immediate feedback; originating workflows must be **saga-shaped**—listen for outcome events or poll a read model. That aligns with how we already name work on the Event Modeling board ([From Event Modeling to a Kafka Saga](/2026/10/26/from-event-modeling-to-a-kafka-saga)): `Payment.debitPayment` as a command with `payment_success` / `payment_failure` as outcomes, rather than Payment guessing from unrelated domain events.
+**Cons:** No immediate feedback; originating workflows must be **saga-shaped**—listen for outcome events or poll a read model. That aligns with how we already name work on the Event Modeling board ([From Event Modeling to a Kafka Saga](./2026-10-26-from-event-modeling-to-a-kafka-saga/index.md)): `Payment.debitPayment` as a command with `payment_success` / `payment_failure` as outcomes, rather than Payment guessing from unrelated domain events.
 
 ```mermaid
 sequenceDiagram
