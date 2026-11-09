@@ -6,20 +6,22 @@ unlisted: true
 displayed_sidebar: null
 ---
 
-# Career Master History
+Career Master History
 
 > Detailed career record for resume preparation and personal reference.
 > This document intentionally preserves technologies, projects, responsibilities, and achievements rather than being limited to normal resume length.
 
 ---
 
-## Sony Interactive Entertainment
+## Work Experience
+
+### Sony Interactive Entertainment
 
 Location: Australia
 
 **09 Jan 2023 – 13 Nov 2026**
 
-### Repeat.gg: Esports & Tournament Platform
+#### Repeat.gg: Esports & Tournament Platform
 
 **Senior Software Developer**
 
@@ -85,13 +87,13 @@ Location: Australia
 
 ---
 
-## Wenco International Mining Systems
+### Wenco International Mining Systems
 
 Location: Australia
 
 **May 2022 – Dec 2022**
 
-### SmartCap: Fatigue Monitoring System
+#### SmartCap: Fatigue Monitoring System
 
 **Senior Software Developer**
 
@@ -110,13 +112,13 @@ Location: Australia
 
 ---
 
-## Aurion
+### Aurion
 
 Location: Australia
 
 **Mar 2020 – May 2022**
 
-### T50: Enterprise Payroll Platform
+#### T50: Enterprise Payroll Platform
 
 **Software Developer**
 
@@ -138,13 +140,13 @@ Location: Australia
 
 ---
 
-## AgUnity
+### AgUnity
 
 Location: Australia
 
 **Jan 2019 – Mar 2020**
 
-### AgUnity: Mobile Blockchain Ledger Platform
+#### AgUnity: Mobile Blockchain Ledger Platform
 
 **Oct 2019 – Mar 2020**
 **Software Developer**
@@ -161,7 +163,7 @@ Location: Australia
 * Used Azure DevOps for source control, sprint planning, task-based development and deployment processes.
 * Participated in peer-to-peer code reviews and collaborative development.
 
-### Escovox: IoT-Powered Supply Chain Solution
+#### Escovox: IoT-Powered Supply Chain Solution
 
 **Jan 2019 – Oct 2019 (10 months)**
 **Software Developer**
@@ -180,13 +182,13 @@ Location: Australia
 
 ---
 
-## Ozex
+### Ozex
 
 Location: Australia
 
 **Jun 2018 – Dec 2018 (7 months)**
 
-### Cryptocurrency Derivatives Platform
+#### Cryptocurrency Derivatives Platform
 
 **Oct 2018 – Dec 2018 (3 months)**
 **Software Developer**
@@ -203,7 +205,7 @@ Location: Australia
 * Improved application performance using Redis caching.
 * Implemented real-time data communication using WebSockets.
 
-### Ruby X: Cryptocurrency Exchange Platform
+#### Ruby X: Cryptocurrency Exchange Platform
 
 **Jun 2018 – Dec 2018 (7 months)**
 **Software Developer**
@@ -223,13 +225,13 @@ Location: Australia
 
 ---
 
-## Samsung Electronics
+### Samsung Electronics
 
 Location: South Korea
 
 **Jan 2002 – May 2017 (15 years 5 months)**
 
-### Cause Analytics Automation System
+#### Cause Analytics Automation System
 
 **Jan 2017 – May 2017 (5 months)**
 **Team Lead / Analytics Developer**
@@ -242,7 +244,7 @@ Location: South Korea
 * Architected the engineering knowledge database.
 * Designed a recommendation system for identifying root causes of machine problems using machine-learning techniques.
 
-### Engineer Knowledge System
+#### Engineer Knowledge System
 
 **Jan 2016 – May 2017 (1 year 5 months)**
 **Analytics Developer**
@@ -257,7 +259,7 @@ Location: South Korea
 * Developed text-mining algorithms including keyword autocomplete, document clustering, document classification and document-structure recognition.
 * Developed a solution recommendation system that analysed natural-language questions, extracted relevant information and automatically generated query sentences.
 
-### Machine Loss Cause Analysis System
+#### Machine Loss Cause Analysis System
 
 **Feb 2015 – May 2017 (2 years 4 months)**
 **Team Lead / Analytics Developer**
@@ -272,7 +274,7 @@ Location: South Korea
 * Developed an email service for automated KPI reports.
 * Contributed to analytics functionality for identifying and analysing manufacturing equipment losses.
 
-### Equipment Option Database System
+#### Equipment Option Database System
 
 **Jun 2014 – Jun 2015 (1 year 1 month)**
 **Tech Lead / Senior Developer**
@@ -286,7 +288,7 @@ Location: South Korea
 * Developed a file-transfer module using Apache Commons Net.
 * Architected the Oracle database schema and developed SQL queries.
 
-### Wafer Warpage Early Detection System
+#### Wafer Warpage Early Detection System
 
 **Jun 2014 – Dec 2014 (6 months)**
 **Tech Lead / Senior Developer**
@@ -300,7 +302,7 @@ Location: South Korea
 * Architected the Oracle database schema and developed SQL queries.
 * Applied statistical analysis to detect wafer warpage conditions at an early stage.
 
-### Statistics and Analysis System for Transfer Vehicles
+#### Statistics and Analysis System for Transfer Vehicles
 
 **Jan 2011 – May 2014 (3 years 5 months)**
 **Tech Lead / Senior Developer**
@@ -317,7 +319,7 @@ Location: South Korea
 * Applied machine-learning algorithms including Apriori, decision trees, Naive Bayes and Expectation-Maximisation.
 * Led technical development of statistical and analytical functionality for manufacturing transfer vehicles.
 
-### Statistics and Analysis System for Robot Diagnosis
+#### Statistics and Analysis System for Robot Diagnosis
 
 **Jan 2009 – Dec 2010 (2 years)**
 **Senior Developer**
@@ -332,7 +334,7 @@ Location: South Korea
 * Developed statistical-analysis algorithms for various analogue signals.
 * Optimised MS SQL queries.
 
-### Statistics and Analysis System for Injection Moulding
+#### Statistics and Analysis System for Injection Moulding
 
 **Jan 2009 – Dec 2009 (1 year)**
 **Senior Developer**
@@ -346,7 +348,7 @@ Location: South Korea
 * Developed a TCP-based communication interface for Engel equipment.
 * Optimised MS SQL queries.
 
-### Machine Control Software Reverse Engineering
+#### Machine Control Software Reverse Engineering
 
 **Jan 2008 – Jan 2009 (1 year 1 month)**
 **Tech Lead / Senior Developer**
@@ -362,7 +364,7 @@ Location: South Korea
 * Developed digital input/output control using industrial fieldbus technologies including Anybus.
 * Developed and improved the performance of a dynamic material-handling scheduler.
 
-### Network Driver
+#### Network Driver
 
 **May 2006 – Jan 2008 (1 year 7 months)**
 **Tech Lead / Senior Developer**
@@ -376,7 +378,7 @@ Location: South Korea
 * Developed a high-speed Ethernet-based I/O interface with approximately 5 ms scan time.
 * Developed user-interface functionality using MFC.
 
-### Semiconductor Equipment Control Software
+#### Semiconductor Equipment Control Software
 
 **May 2002 – Dec 2006 (5 years 8 months)**
 **Junior / Mid-Level Developer**
@@ -393,13 +395,13 @@ Location: South Korea
 
 ---
 
-# Personal Projects
+## Personal Projects
 
-## Second Memory
+### Second Memory
 
 **2026 – Present**
 
-### AI-Powered Personal Memory Assistant
+#### AI-Powered Personal Memory Assistant
 
 **Technologies:** TypeScript, Python, Next.js, React, React Native, Expo, NestJS, PostgreSQL, pgvector, Prisma, Redis, Firebase Authentication, RAG, Vector Embeddings, Docker, TurboRepo, pnpm, Render, Vercel, EAS
 
@@ -432,7 +434,7 @@ Location: South Korea
 * Explored integration architecture for accessing personal data from Gmail, calendars and Notion, including REST API, OAuth and MCP-based approaches.
 * Explored approaches for combining personal RAG data with external web information when answering questions.
 
-# Education
+## Education
 
 **Hanyang University** — Seoul, Korea
 
