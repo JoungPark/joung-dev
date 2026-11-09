@@ -25,6 +25,11 @@ Location: Australia
 
 **Technologies:** TypeScript, Node.js, NestJS, React, React Native, Expo, PHP, Symfony, Firebase Authentication, MySQL, MongoDB / Amazon DocumentDB, Apache Kafka / Amazon MSK, AWS ECS Fargate, EC2, Lambda, EventBridge, AppConfig, Secrets Manager, SSM, CloudWatch, S3, SES, CodeDeploy, CDK, Docker, GitHub Copilot, Cursor
 
+**Key Achievements:**
+
+* AMQ to Kafka migration
+* Head-to-Head (H2H) tournament: Event Modeling, Design Development, Write JIRA tickets, Share the cross team
+
 **Responsibilities & Achievements:**
 
 * Designed and developed backend services for an asynchronous esports tournament platform.
@@ -62,6 +67,21 @@ Location: Australia
 * Used GitHub Copilot as a coding agent with repository-level instruction files, including a plan-first workflow to review intended changes before implementation.
 * Expanded use of Cursor from code completion to broader AI-assisted development.
 * Shared technical knowledge with new and junior developers.
+
+**Event Driven Archetecture**
+- Designed and implemented event-driven microservices using Apache Kafka, NestJS, TypeScript, and AWS.
+- Applied formal Event Modeling methodology to design tournament workflows, including commands, events, state transitions, and cross-service interactions.
+- Implemented Kafka-based Saga Pattern for paid tournament entries, coordinating payment processing, game rank verification, and baselining, with automatic payment refunds as compensating transactions when subsequent operations failed.
+- Developed asynchronous entry processing with eventual consistency and CQRS-style status queries, allowing clients to track entry confirmation independently of the initial request.
+- Implemented idempotent event processing, retry mechanisms, and failure handling to improve distributed system reliability.
+
+****Email Automation**
+- Architected and implemented a scalable email delivery system using Kafka for event streaming, MySQL for recipient management, and AWS SES for email transmission.
+- Implemented cron-based job scheduling for reliable, time-based email campaign execution across distributed infrastructure.
+- Designed configurable send rate limiting with IP-aware throttling to optimize deliverability and maintain sender reputation across multiple sending IPs.
+- Developed intelligent batching mechanisms to efficiently process large recipient lists while respecting rate limits and infrastructure constraints.
+- Built GraphQL API for email campaign configuration, monitoring, and management, enabling flexible queries and real-time delivery metrics.
+- Implemented AWS CloudWatch dashboards and metrics to monitor email delivery health, including send success rates, bounce rates, SES throttling events, and Kafka lag metrics for real-time visibility into system performance. 
 
 ---
 
@@ -411,3 +431,9 @@ Location: South Korea
 * Designed prompts that require the assistant to answer from retrieved memories and explicitly acknowledge insufficient evidence rather than fabricate dates or events.
 * Explored integration architecture for accessing personal data from Gmail, calendars and Notion, including REST API, OAuth and MCP-based approaches.
 * Explored approaches for combining personal RAG data with external web information when answering questions.
+
+# Education
+
+**Hanyang University** — Seoul, Korea
+
+Bachelor of Engineering in Electronics and Computer Science
