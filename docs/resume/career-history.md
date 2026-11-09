@@ -77,11 +77,12 @@ Location: Australia
 - Developed asynchronous entry processing with eventual consistency and CQRS-style status queries, allowing clients to track entry confirmation independently of the initial request.
 - Implemented idempotent event processing, retry mechanisms, and failure handling to improve distributed system reliability.
 
-****Email Automation**
+**Email Automation**
 - Architected and implemented a scalable email delivery system using Kafka for event streaming, MySQL for recipient management, and AWS SES for email transmission.
-- Implemented cron-based job scheduling for reliable, time-based email campaign execution across distributed infrastructure.
+- Implemented cron-based job scheduling for multiple reminder types: monthly, weekly, and one-off reminders, ensuring reliable, time-based email campaign execution across distributed infrastructure.
+- Developed recipient eligibility logic that dynamically determined which users should receive emails based on account status, with efficient MySQL queries for large-scale recipient filtering.
 - Designed configurable send rate limiting with IP-aware throttling to optimize deliverability and maintain sender reputation across multiple sending IPs.
-- Developed intelligent batching mechanisms to efficiently process large recipient lists while respecting rate limits and infrastructure constraints.
+- Developed intelligent batching mechanisms to efficiently process large recipient lists into SES-compatible batches while respecting rate limits, infrastructure constraints, and ensuring no duplicate sends.
 - Built GraphQL API for email campaign configuration, monitoring, and management, enabling flexible queries and real-time delivery metrics.
 - Implemented AWS CloudWatch dashboards and metrics to monitor email delivery health, including send success rates, bounce rates, SES throttling events, and Kafka lag metrics for real-time visibility into system performance. 
 
