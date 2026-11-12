@@ -17,3 +17,8 @@ kafka:
   label: Kafka
   permalink: /kafka
   description: Apache Kafka and event streaming
+
+job-search:
+  label: Job Search
+  permalink: /job-search
+  description: Job Search Assistant Chrome extension
