@@ -25,66 +25,109 @@ Location: Australia
 
 **Senior Software Developer**
 
-**Technologies:** TypeScript, Node.js, NestJS, React, React Native, Expo, PHP, Symfony, Firebase Authentication, MySQL, MongoDB / Amazon DocumentDB, Apache Kafka / Amazon MSK, AWS ECS Fargate, EC2, Lambda, EventBridge, AppConfig, Secrets Manager, SSM, CloudWatch, S3, SES, CodeDeploy, CDK, Docker, GitHub Copilot, Cursor
+**Technologies:**
 
-**Key Achievements:**
+* TypeScript, Node.js, NestJS, GraphQL, PHP, Symfony
+* React, React Native, Expo
+* MySQL (Prisma, Doctrine), MongoDB / Amazon DocumentDB (Mongoose), Apache Kafka / Amazon MSK (migrated from Amazon MQ / ActiveMQ)
+* OpenTelemetry, Elastic APM export via OpenTelemetry Collector
+* AWS: ECS Fargate, EC2, Lambda, EventBridge, AppConfig, Secrets Manager, SSM, CloudWatch, S3, SES, SNS, CodeDeploy, CDK
+* Docker, Firebase Authentication
+* AI-assisted development: GitHub Copilot, Cursor
 
-* AMQ to Kafka migration
-* Head-to-Head (H2H) tournament: Event Modeling, Design Development, Write JIRA tickets, Share the cross team
-
-**Responsibilities & Achievements:**
+#### Core responsibilities & delivery
 
 * Designed and developed backend services for an asynchronous esports tournament platform.
-* Worked primarily on backend development while also contributing to React web and React Native mobile applications.
-* Designed and implemented distributed services using TypeScript, Node.js and NestJS.
-* Developed event-driven workflows using Apache Kafka / Amazon MSK.
-* Built and maintained services deployed across AWS ECS Fargate, EC2 and AWS Lambda.
+* Worked primarily on backend development while also contributing to web and mobile on Repeat.gg, including approximately 1.5 years of mobile work.
+* Built and maintained services for production deployment on AWS (container and serverless workloads).
 * Designed systems for asynchronous tournament workflows, including tournament entry, scoring, game-result processing, rewards and tournament completion.
-* Developed and contributed to Head-to-Head (H2H) tournament functionality supporting user-v-user and team-v-team competition.
 * Contributed to Lobby tournament architecture, including tournament-end, scoring and reward processes.
-* Developed game-result gathering and processing integrations with external game services, including Epic, EA and Riot.
-* Worked with game integrations including Rocket League, League of Legends, Battlefield 6 and other supported titles.
-* Developed services responsible for processing and normalising external game results before tournament scoring.
+* Investigated and resolved database performance, indexing, migration and large-dataset issues.
+* Worked with production datasets containing tens of millions of documents.
+* Participated in system design, technical planning, implementation, testing and production support.
+* Regularly reviewed pull requests and helped other developers through technical discussions and the development support channel.
+* Maintained a high QA pass rate, with tickets rarely reopened after implementation.
+* Participated in the production support roster and investigated production incidents across applications and AWS infrastructure.
+* Used application logs, production monitoring, and CI/CD for troubleshooting and releases.
+* Shared technical knowledge with new and junior developers.
+
+#### Major features
+
+##### AMQ to Kafka migration
+
+* Contributed to the team’s live migration from ActiveMQ on Amazon MQ to Kafka on MSK without a broker shutdown window: stood up consumers on the new path, switched publishers, drained the legacy queue, and kept rollback listeners until the new path was stable.
+* Helped preserve per-entity message ordering across brokers by mapping JMS message-group semantics to consistent Kafka partition keys for stateful scoring-style processing.
+* Supported a listener-versus-service split so new Kafka entry points called the same domain services as the legacy listener, limiting migration risk to the messaging boundary.
+* Participated in post-cutover monitoring (consumer lag, processing errors, downstream correctness) as the team retired legacy publish and consume paths.
+* Designed and implemented event-driven microservices for tournament and platform services.
 * Worked extensively with Kafka topics, consumer groups, partitioning, message ordering, retries and failure handling.
 * Investigated production issues involving duplicate events, consumer-group behaviour and message redelivery.
 * Contributed to Kafka reliability and maintenance improvements, including proposing improvements to topic maintenance.
+
+##### Head-to-Head (H2H) tournaments
+
+* Led design and development for Head-to-Head (H2H) tournaments using Event Modeling, including cross-team technical planning and JIRA breakdown.
+* Participated in cross-team Event Modeling on the tournament product so squads could own swimlanes against a shared event timeline.
+* Developed and contributed to Head-to-Head (H2H) tournament functionality supporting user-v-user and team-v-team competition.
+
+##### Step-up verification (email OTP)
+
+> Note: Team-owned; my role: familiarity + prod support (details not for resume).
+
+##### Game integration
+
+* Developed game-result gathering and processing integrations with external game services, including Epic, EA and Riot.
+* Worked with game integrations including Rocket League, League of Legends, Battlefield 6 and other supported titles.
+* Developed services responsible for processing and normalising external game results before tournament scoring.
+
+##### Email automation
+
+* Architected and implemented a scalable event-streamed email delivery pipeline with recipient management and high-volume outbound transmission.
+* Implemented cron-based job scheduling for multiple reminder types: monthly, weekly, and one-off reminders, ensuring reliable, time-based email campaign execution across distributed infrastructure.
+* Developed recipient eligibility logic that dynamically determined which users should receive emails based on account status, with efficient relational queries for large-scale recipient filtering.
+* Designed configurable send rate limiting with IP-aware throttling to optimize deliverability and maintain sender reputation across multiple sending IPs.
+* Developed intelligent batching mechanisms to efficiently process large recipient lists into SES-compatible batches while respecting rate limits, infrastructure constraints, and ensuring no duplicate sends.
+* Built GraphQL API for email campaign configuration, monitoring, and management, enabling flexible queries and real-time delivery metrics.
+* Built monitoring dashboards and metrics for email delivery health, including send success rates, bounce rates, throttling events, and message-pipeline lag for real-time visibility into system performance.
+
+#### Improvements & reliability
+
+##### SES bounce block list
+
+* Implemented a send-time guard that refuses outbound mail to permanently bounced addresses before the outbound provider, protecting sender reputation and reducing wasted sends.
+* Wired bounce feedback through configuration sets and a dedicated bounce processor that upserts blocked addresses into a shared `emailBlockList` collection the messaging API consults before each send.
+* Chose serverless bounce processing over a long-lived queue consumer on the EC2 messaging fleet (PM2 / CodeDeploy) to keep bounce handling off the send-path hosts.
+* Deployed infrastructure and the processor from a separate repository with a shared database; messaging owns send behaviour and reads the block list, and the processor writes bounce-driven blocks only.
+* In production, subscribed the bounce handler directly to the bounce topic (no queue buffer), matching low per-event work (parse bounce payload, validate permanent bounce, upsert one email) and typical bounce volume relative to send volume; used production monitoring for handler errors and duration.
+
+##### Kafka topic design standards
+
+* Contributed to team post-incident learning when bulk or backfill traffic on a shared topic increased lag for latency-sensitive message types that shared partitions with export-style workloads (live billing events versus ledger export pattern).
+* Contributed when a poison or invalid record on one handler path stalled the shared consumer partition and blocked unrelated message types routed by headers alone (fulfillment versus returns pattern).
+* Helped articulate and promote a team default: co-locate events on one topic only when strict order per key is required; split topics by urgency, retry or DLQ boundaries, and ownership when message types need different failure domains.
+
+##### OpenTelemetry rollout
+
+* Contributed to the team’s OpenTelemetry adoption for end-to-end tracing across HTTP on ECS, long-running workers on EC2, and Lambda, exporting via a Collector to Elastic APM.
+* Participated in rolling out auto-instrumentation on Node and PHP for HTTP, database, and client spans; documented where auto stops (MSK-triggered Lambda, transactional outbox, scheduled jobs).
+* Helped implement manual trace propagation: W3C `traceparent` inject on outbox commit, extract on async consumers (including Lambda record headers), and entry-span wrappers for cron and queue handlers so one logical operation stays one trace.
+
+##### Centralized feature flags and configuration
+
+* Contributed to centralizing feature flags and service configuration in AWS AppConfig, replacing fragmented monolith flag storage and build-time environment files baked from object storage at deploy.
+* Participated in standardizing runtime reads through AppConfig Agent or Lambda extension on localhost and a shared library across ECS, EC2, and Lambda (deploy, poll, and application re-read semantics).
+* Helped define layout: global feature-flag profile, global defaults plus per-service overrides for configuration, and a public config API for clients versus separate in-process reads for backends.
+
+#### Methods, patterns & tooling
+
+* Applied Event Modeling at product scope—commands, events, state transitions, and cross-service contracts on a shared board so multiple teams could extend the model without rewiring core flows.
+* Participated in implementing a Kafka-based Saga for tournament entry (entry fee, rank verification, baselining) with compensating refunds on failure, plus asynchronous entry with CQRS-style read paths for client status tracking.
+* Implemented idempotent event processing, retry mechanisms, and failure handling to improve distributed system reliability.
 * Designed delayed processing workflows using Amazon EventBridge Scheduler.
-* Worked with MySQL using Prisma and Doctrine and with MongoDB / Amazon DocumentDB using Mongoose.
-* Investigated and resolved database performance, indexing, migration and large-dataset issues.
-* Worked with production datasets containing tens of millions of documents.
-* Worked with Firebase Authentication in the Repeat.gg platform.
-* Developed and maintained React-based web functionality.
-* Contributed approximately 1.5 years of React Native / Expo mobile development.
-* Participated in system design, technical planning, implementation, testing and production support.
-* Regularly reviewed pull requests and helped other developers through technical discussions and the development support channel.
-* Consistently delivered approximately 16–20 story points per sprint.
-* Maintained a high QA pass rate, with tickets rarely reopened after implementation.
-* Participated in the production support roster and investigated production incidents across applications and AWS infrastructure.
-* Used AWS CloudWatch and application logs for monitoring and production troubleshooting.
-* Worked with feature flags and runtime configuration using AWS AppConfig.
-* Worked with CI/CD, Docker and automated deployment processes.
-* Contributed to high-volume Amazon SES email processing and operational monitoring.
 * Attended DDD Brisbane and introduced Specification-Driven Development (SDD) concepts to the team.
 * Presented TDD/SDD learnings and demonstrated the approach to other developers.
 * Used GitHub Copilot as a coding agent with repository-level instruction files, including a plan-first workflow to review intended changes before implementation.
 * Expanded use of Cursor from code completion to broader AI-assisted development.
-* Shared technical knowledge with new and junior developers.
-
-**Event Driven Archetecture**
-- Designed and implemented event-driven microservices using Apache Kafka, NestJS, TypeScript, and AWS.
-- Applied formal Event Modeling methodology to design tournament workflows, including commands, events, state transitions, and cross-service interactions.
-- Implemented Kafka-based Saga Pattern for paid tournament entries, coordinating payment processing, game rank verification, and baselining, with automatic payment refunds as compensating transactions when subsequent operations failed.
-- Developed asynchronous entry processing with eventual consistency and CQRS-style status queries, allowing clients to track entry confirmation independently of the initial request.
-- Implemented idempotent event processing, retry mechanisms, and failure handling to improve distributed system reliability.
-
-**Email Automation**
-- Architected and implemented a scalable email delivery system using Kafka for event streaming, MySQL for recipient management, and AWS SES for email transmission.
-- Implemented cron-based job scheduling for multiple reminder types: monthly, weekly, and one-off reminders, ensuring reliable, time-based email campaign execution across distributed infrastructure.
-- Developed recipient eligibility logic that dynamically determined which users should receive emails based on account status, with efficient MySQL queries for large-scale recipient filtering.
-- Designed configurable send rate limiting with IP-aware throttling to optimize deliverability and maintain sender reputation across multiple sending IPs.
-- Developed intelligent batching mechanisms to efficiently process large recipient lists into SES-compatible batches while respecting rate limits, infrastructure constraints, and ensuring no duplicate sends.
-- Built GraphQL API for email campaign configuration, monitoring, and management, enabling flexible queries and real-time delivery metrics.
-- Implemented AWS CloudWatch dashboards and metrics to monitor email delivery health, including send success rates, bounce rates, SES throttling events, and Kafka lag metrics for real-time visibility into system performance. 
 
 ---
 
