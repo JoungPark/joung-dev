@@ -11,6 +11,12 @@ The goal is not to auto-apply to hundreds of listings. It is to **spend less tim
 
 {/* truncate */}
 
+:::note Project update — 17 November 2026
+
+I've decided to stop the Job Search Assistant project because I can handle this workflow with the ChatGPT desktop app and its in-app browser. That removes my immediate need to build a separate extension. The rest of this post preserves the original idea and proposed approach for reference.
+
+:::
+
 ## My current job search workflow
 
 My routine looks like this:
