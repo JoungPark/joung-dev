@@ -2,7 +2,7 @@
 slug: project-idea-job-search-assistant
 title: Building a Job Search Assistant
 authors: [joung]
-tags: [job-search]
+draft: true
 ---
 
 Job searching takes time, especially when the goal is the right role rather than applying everywhere. Lately I've been on SEEK and LinkedIn almost daily, and the same steps repeat: save jobs, then copy descriptions into an AI chatbot so I can compare them against my background.
