@@ -51,7 +51,34 @@ Location: Australia
 * Used application logs, production monitoring, and CI/CD for troubleshooting and releases.
 * Shared technical knowledge with new and junior developers.
 
-#### Major features
+#### Key contributions
+
+##### Game integration
+
+* Investigated and verified external game APIs and discussed integration requirements with the game provider.
+* Used OAuth 2.0 to retrieve players’ game profiles.
+* Designed and implemented the workflow for collecting and normalising game results before tournament scoring.
+* Worked with external game services from Epic, EA and Riot on integrations for titles including Rocket League, League of Legends and Battlefield 6.
+* Designed a scoring template with the game admin team.
+
+##### Head-to-Head (H2H) tournaments
+
+* Used Event Modeling with the tech lead to design the event-driven workflow for a new asynchronous format in which two players or two teams compete head-to-head.
+* Finalised the design and created Jira implementation tasks after the tech lead left the company.
+* Walked other teams through the design and guided them on their parts of the implementation. Implemented the functionality owned by my team.
+
+##### Lobby Tournament
+
+* Designed the scoring system as part of the broader design for a new asynchronous format in which multiple players or teams compete in the same tournament.
+
+##### Matchmaking Leaderboard
+
+* Discussed matchmaking requirements with the product team and designed the leaderboard’s core matchmaking algorithm.
+
+##### Tournament score v2
+
+* Played a major role in implementing v2, shared the changes with the wider team and reviewed implementation work.
+* Helped move scoring storage from MySQL in v1 to MongoDB in v2 to support a more flexible data model and store additional scoring data. Maintained backward compatibility with v1.
 
 ##### AMQ to Kafka migration
 
@@ -64,21 +91,11 @@ Location: Australia
 * Investigated production issues involving duplicate events, consumer-group behaviour and message redelivery.
 * Contributed to Kafka reliability and maintenance improvements, including proposing improvements to topic maintenance.
 
-##### Head-to-Head (H2H) tournaments
+##### Centralized feature flags and configuration
 
-* Led design and development for Head-to-Head (H2H) tournaments using Event Modeling, including cross-team technical planning and JIRA breakdown.
-* Participated in cross-team Event Modeling on the tournament product so squads could own swimlanes against a shared event timeline.
-* Developed and contributed to Head-to-Head (H2H) tournament functionality supporting user-v-user and team-v-team competition.
-
-##### Step-up verification (email OTP)
-
-> Note: Team-owned; my role: familiarity + prod support (details not for resume).
-
-##### Game integration
-
-* Developed game-result gathering and processing integrations with external game services, including Epic, EA and Riot.
-* Worked with game integrations including Rocket League, League of Legends, Battlefield 6 and other supported titles.
-* Developed services responsible for processing and normalising external game results before tournament scoring.
+* Contributed to centralizing feature flags and service configuration in AWS AppConfig, replacing fragmented monolith flag storage and build-time environment files baked from object storage at deploy.
+* Participated in standardizing runtime reads through AppConfig Agent or Lambda extension on localhost and a shared library across ECS, EC2, and Lambda (deploy, poll, and application re-read semantics).
+* Helped define layout: global feature-flag profile, global defaults plus per-service overrides for configuration, and a public config API for clients versus separate in-process reads for backends.
 
 ##### Email automation
 
@@ -89,8 +106,6 @@ Location: Australia
 * Developed intelligent batching mechanisms to efficiently process large recipient lists into SES-compatible batches while respecting rate limits, infrastructure constraints, and ensuring no duplicate sends.
 * Built GraphQL API for email campaign configuration, monitoring, and management, enabling flexible queries and real-time delivery metrics.
 * Built monitoring dashboards and metrics for email delivery health, including send success rates, bounce rates, throttling events, and message-pipeline lag for real-time visibility into system performance.
-
-#### Improvements & reliability
 
 ##### SES bounce block list
 
@@ -112,11 +127,9 @@ Location: Australia
 * Participated in rolling out auto-instrumentation on Node and PHP for HTTP, database, and client spans; documented where auto stops (MSK-triggered Lambda, transactional outbox, scheduled jobs).
 * Helped implement manual trace propagation: W3C `traceparent` inject on outbox commit, extract on async consumers (including Lambda record headers), and entry-span wrappers for cron and queue handlers so one logical operation stays one trace.
 
-##### Centralized feature flags and configuration
+##### Step-up verification (email OTP)
 
-* Contributed to centralizing feature flags and service configuration in AWS AppConfig, replacing fragmented monolith flag storage and build-time environment files baked from object storage at deploy.
-* Participated in standardizing runtime reads through AppConfig Agent or Lambda extension on localhost and a shared library across ECS, EC2, and Lambda (deploy, poll, and application re-read semantics).
-* Helped define layout: global feature-flag profile, global defaults plus per-service overrides for configuration, and a public config API for clients versus separate in-process reads for backends.
+> Note: Team-owned; my role: familiarity + prod support (details not for resume).
 
 #### Methods, patterns & tooling
 
